@@ -1,0 +1,292 @@
+{
+  "schema_version": "llm-eval-report/v2",
+  "run": {
+    "run_id": "20260701_193303_70cbed",
+    "generated_at": "2026-07-01T19:34:30.857015",
+    "status": "completed"
+  },
+  "config": {
+    "model": "deepseek-ai/DeepSeek-V4-Pro",
+    "judge_model": "Qwen/Qwen2.5-72B-Instruct",
+    "eval_engine": "deepeval",
+    "eval_strict": true,
+    "metric_threshold": 0.7,
+    "dataset": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_dataset.json",
+    "case_count": 3,
+    "eval_suite": "smoke",
+    "fail_under": null,
+    "ci_mode": false
+  },
+  "summary": {
+    "success_count": 3,
+    "failed_count": 0,
+    "overall_score": 1.0,
+    "overall_percent": 100.0,
+    "score_distribution": {
+      "<60%": 0,
+      "60-79%": 0,
+      "80-89%": 0,
+      "90-94%": 0,
+      "95-100%": 3
+    },
+    "metric_averages": {
+      "answer_relevancy": 1.0,
+      "correctness": 1.0,
+      "hallucination_quality": 1.0,
+      "objective_check": 1.0
+    },
+    "by_category": {
+      "数学推理": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "格式遵循": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "边界": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "case_count": 3,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    },
+    "by_sampling_strategy": {
+      "格式约束": {
+        "case_count": 2,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "精确计算": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    },
+    "by_suite": {
+      "golden": {
+        "case_count": 3,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "smoke": {
+        "case_count": 3,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    }
+  },
+  "artifacts": {
+    "markdown_report": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_report.md",
+    "latest_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results.json",
+    "archive_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results\\20260701_193303_70cbed.json"
+  },
+  "results": [
+    {
+      "id": 6,
+      "type": "single",
+      "category": "数学推理",
+      "difficulty": "easy",
+      "sampling_strategy": "精确计算",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "计算",
+        "精确性",
+        "短答案"
+      ],
+      "question": "997 × 383 等于多少？请只给出最终数字。",
+      "input_summary": {
+        "type": "single",
+        "question": "997 × 383 等于多少？请只给出最终数字。"
+      },
+      "status": "success",
+      "answer": "381851",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the input by providing the exact multiplication result requested, without any irrelevant statements."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出为381851，与期望输出完全一致，且仅输出了最终数字，没有额外解释。"
+          },
+          "hallucination": {
+            "score": 1.0,
+            "raw_score": 0.0,
+            "direction": "lower_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because the actual output perfectly aligns with all provided contexts and there are no contradictions."
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "答案包含期望值 381851"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(答案包含期望值 381851); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出为381851，与期望输出完全一致，且仅输出了最终数字，没有额外解释。...); hallucination_risk=0.00,quality=1.00 (The score is 0.00 because the actual output perfectly aligns...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "b963f7cc1c87dd6bb489b7c21f68c319",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 18,
+        "completion_tokens": 114,
+        "total_tokens": 132
+      },
+      "latency": {
+        "generation": 29.415842533111572,
+        "eval": 11.194840908050537
+      }
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "category": "格式遵循",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "JSON",
+        "指令遵循",
+        "结构化输出"
+      ],
+      "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。",
+      "input_summary": {
+        "type": "single",
+        "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。"
+      },
+      "status": "success",
+      "answer": "{\"name\": \"张三\", \"age\": 28, \"city\": \"上海\"}",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output is perfectly relevant and directly addresses the input requirements. Keep up the good work!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合输入和期望输出的要求，包含所有指定字段且格式正确。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "JSON 结构与字段值正确"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(JSON 结构与字段值正确); answer_relevancy=1.00 (The score is 1.00 because the output is perfectly relevant a...); correctness=1.00 (实际输出完全符合输入和期望输出的要求，包含所有指定字段且格式正确。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "1854e5417d3b8a00d34be70807d1ca1c",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 29,
+        "completion_tokens": 54,
+        "total_tokens": 83
+      },
+      "latency": {
+        "generation": 3.1830432415008545,
+        "eval": 7.842742919921875
+      }
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "category": "边界",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "简洁",
+        "指令遵循"
+      ],
+      "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。",
+      "input_summary": {
+        "type": "single",
+        "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。"
+      },
+      "status": "success",
+      "answer": "4",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly matches the input requirement, providing the correct answer without any irrelevant statements."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出仅包含数字4，完全符合期望输出的要求，没有多余文字。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "仅输出数字 4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(仅输出数字 4); answer_relevancy=1.00 (The score is 1.00 because the output perfectly matches the i...); correctness=1.00 (实际输出仅包含数字4，完全符合期望输出的要求，没有多余文字。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "8ba4100ac648a9c92b581e759971f638",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 25,
+        "total_tokens": 45
+      },
+      "latency": {
+        "generation": 3.8450186252593994,
+        "eval": 7.83935022354126
+      }
+    }
+  ]
+}

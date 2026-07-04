@@ -1,0 +1,198 @@
+{
+  "run_id": "20260622_011531_aa9bab",
+  "generated_at": "2026-06-22T01:17:10.558803",
+  "model": "deepseek-ai/DeepSeek-V4-Pro",
+  "judge_model": "deepseek-ai/DeepSeek-V4-Pro",
+  "eval_engine": "simple",
+  "eval_strict": true,
+  "dataset": "eval_dataset.json",
+  "case_count": 3,
+  "results": [
+    {
+      "id": 1,
+      "type": "single",
+      "category": "知识解释",
+      "tags": [
+        "概念",
+        "机器学习"
+      ],
+      "question": "解释一下什么是机器学习中的过拟合。",
+      "input_summary": {
+        "type": "single",
+        "question": "解释一下什么是机器学习中的过拟合。"
+      },
+      "status": "success",
+      "answer": "在机器学习中，**过拟合**是指模型在训练数据上表现得过于优秀，甚至把数据中的随机噪声和个别特例都“死记硬背”了下来，导致它面对从未见过的新数据时，预测能力反而很差。简单说，就是**模型把训练数据学得太死板，失去了泛化能力**。\n\n### 一个形象的比喻\n可以把模型想象成一个学生：\n- **正常学习**：理解了数学公式背后的原理，即使遇到没做过的题也能推导出来。\n- **过拟合**：把练习册里所有题目的答案都背了下来，连印刷错误和笔误都记住了。考试时题目稍微变一下，他就完全不会了，因为他只会复述，不会推理。\n\n### 过拟合的具体表现\n- **在训练集上**：误差非常小，甚至接近零，预测几乎完美。\n- **在测试集（或新数据）上**：误差很大，表现远不如训练时。\n- **模型形态**：决策边界会变得异常扭曲、复杂，为了迎合个别异常点而剧烈弯折，而不是一条平滑合理的曲线。\n\n### 为什么会发生过拟合？\n主要原因有：\n1. **模型过于复杂**（比如用高次多项式去拟合只有几个点的线性趋势，或者神经网络层数、参数过多）。\n2. **训练数据太少**，不足以代表整体分布。\n3. **数据中噪声较大**，模型把噪声当成了规律来学习。\n4. **训练时间过长**（迭代次数过多），让模型有机会去“雕琢”每一个细节。\n\n### 如何发现过拟合？\n最直接的信号是：**训练误差持续下降，但验证集/测试集误差在下降到一定程度后反而开始上升**。这时就说明模型已经开始学习训练集中的噪声，而不是通用模式了。\n\n### 常见的解决方法\n- **增加训练数据**：让模型看到更多样的情况，噪声的影响就会被稀释。\n- **简化模型**：减少特征数量、降低多项式次数、减少网络层数或神经元数。\n- **正则化**：在损失函数中加入惩罚项（如 L1、L2 正则化），限制参数不要变得过大、过极端。\n- **交叉验证**：将数据分成多份，反复验证，确保模型在不同子集上都表现稳定。\n- **早停**：在训练过程中监控验证集误差，一旦误差不再下降甚至回升，就提前停止训练。\n- **集成学习**：如随机森林、梯度提升等，通过组合多个简单模型来降低过拟合风险。\n- **Dropout**（常用于神经网络）：训练时随机丢弃一部分神经元，强迫网络不依赖特定路径。\n\n总之，过拟合是机器学习中几乎不可避免的挑战，核心目标就是在“对训练数据的拟合程度”和“对新数据的泛化能力”之间找到最佳平衡点。",
+      "scores": {
+        "engine": "simple",
+        "metrics": {
+          "准确性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，覆盖了训练集表现好、测试集表现差、泛化能力不足等所有参考要点，并详细解释了原因、检测方法和多种解决方案（含正则化与早停）。比喻生动，结构清晰，直接回应问题，几乎无可挑剔。"
+          },
+          "完整性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，覆盖了训练集表现好、测试集表现差、泛化能力不足等所有参考要点，并详细解释了原因、检测方法和多种解决方案（含正则化与早停）。比喻生动，结构清晰，直接回应问题，几乎无可挑剔。"
+          },
+          "有用性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，覆盖了训练集表现好、测试集表现差、泛化能力不足等所有参考要点，并详细解释了原因、检测方法和多种解决方案（含正则化与早停）。比喻生动，结构清晰，直接回应问题，几乎无可挑剔。"
+          },
+          "objective_check": {
+            "score": 0.25,
+            "passed": false,
+            "reason": "要点覆盖 1/4，未覆盖: 训练集表现好; 测试集表现差"
+          }
+        },
+        "overall_score": 0.6625,
+        "overall_percent": 66.3,
+        "passed_all": false,
+        "summary": "objective=0.25(要点覆盖 1/4，未覆盖: 训练集表现好; 测试集表现差); 回答准确无误，覆盖了训练集表现好、测试集表现差、泛化能力不足等所有参考要点，并详细解释了原因、检测方法和多种解决方案（含正则化与早停）。比喻生动，结构清晰，直接回应问题，几乎无可挑剔。 [严格校准：自评全5分已压至4]",
+        "_parse_ok": true,
+        "_judge_prompt": "你是一个严格、挑剔的评测裁判。请根据以下三个维度，对 AI 助手的回答进行 1-5 分打分（1 最差，5 最好），并给出简短理由。\n\n评分校准（必须遵守）：\n- 5 分：几乎无可挑剔，明显优于普通好答案（全数据集里应很少出现）\n- 4 分：整体良好，有小瑕疵或轻微遗漏\n- 3 分：基本可用，但有明显遗漏、冗余或部分不准确（多数合格回答应落在此档）\n- 2 分：有重要错误或只回答了一小部分\n- 1 分：严重错误、答非所问或有害\n\n维度说明：\n1. 准确性：事实是否正确、有无幻觉；与参考要点冲突时准确性不得高于 2 分\n2. 完整性：是否覆盖用户问题的必要要点；遗漏关键要点不得高于 3 分\n3. 有用性：是否直接、清晰；冗长啰嗦、答非所问应降低分数\n\n请以严格的 JSON 格式输出，不要包含其他文字：\n{\"准确性\": <int>, \"完整性\": <int>, \"有用性\": <int>, \"总评\": \"<简短理由>\"}\n\n用例类型：single\n用例类别：知识解释\n用例标签：概念, 机器学习\n\n用户问题：\n解释一下什么是机器学习中的过拟合。\n\nAI助手的回答：\n在机器学习中，**过拟合**是指模型在训练数据上表现得过于优秀，甚至把数据中的随机噪声和个别特例都“死记硬背”了下来，导致它面对从未见过的新数据时，预测能力反而很差。简单说，就是**模型把训练数据学得太死板，失去了泛化能力**。\n\n### 一个形象的比喻\n可以把模型想象成一个学生：\n- **正常学习**：理解了数学公式背后的原理，即使遇到没做过的题也能推导出来。\n- **过拟合**：把练习册里所有题目的答案都背了下来，连印刷错误和笔误都记住了。考试时题目稍微变一下，他就完全不会了，因为他只会复述，不会推理。\n\n### 过拟合的具体表现\n- **在训练集上**：误差非常小，甚至接近零，预测几乎完美。\n- **在测试集（或新数据）上**：误差很大，表现远不如训练时。\n- **模型形态**：决策边界会变得异常扭曲、复杂，为了迎合个别异常点而剧烈弯折，而不是一条平滑合理的曲线。\n\n### 为什么会发生过拟合？\n主要原因有：\n1. **模型过于复杂**（比如用高次多项式去拟合只有几个点的线性趋势，或者神经网络层数、参数过多）。\n2. **训练数据太少**，不足以代表整体分布。\n3. **数据中噪声较大**，模型把噪声当成了规律来学习。\n4. **训练时间过长**（迭代次数过多），让模型有机会去“雕琢”每一个细节。\n\n### 如何发现过拟合？\n最直接的信号是：**训练误差持续下降，但验证集/测试集误差在下降到一定程度后反而开始上升**。这时就说明模型已经开始学习训练集中的噪声，而不是通用模式了。\n\n### 常见的解决方法\n- **增加训练数据**：让模型看到更多样的情况，噪声的影响就会被稀释。\n- **简化模型**：减少特征数量、降低多项式次数、减少网络层数或神经元数。\n- **正则化**：在损失函数中加入惩罚项（如 L1、L2 正则化），限制参数不要变得过大、过极端。\n- **交叉验证**：将数据分成多份，反复验证，确保模型在不同子集上都表现稳定。\n- **早停**：在训练过程中监控验证集误差，一旦误差不再下降甚至回升，就提前停止训练。\n- **集成学习**：如随机森林、梯度提升等，通过组合多个简单模型来降低过拟合风险。\n- **Dropout**（常用于神经网络）：训练时随机丢弃一部分神经元，强迫网络不依赖特定路径。\n\n总之，过拟合是机器学习中几乎不可避免的挑战，核心目标就是在“对训练数据的拟合程度”和“对新数据的泛化能力”之间找到最佳平衡点。\n\n参考要点（评分依据，遗漏或冲突须扣分）：\n- 训练集表现好\n- 测试集表现差\n- 泛化能力不足\n- 可提及正则化或早停\n\n严格模式：不要轻易给 5 分；除非近乎完美，否则最高 4 分。",
+        "_judge_raw": "{\"准确性\": 5, \"完整性\": 5, \"有用性\": 5, \"总评\": \"回答准确无误，覆盖了训练集表现好、测试集表现差、泛化能力不足等所有参考要点，并详细解释了原因、检测方法和多种解决方案（含正则化与早停）。比喻生动，结构清晰，直接回应问题，几乎无可挑剔。\"}"
+      },
+      "trace_id": "2f3466bdf4ef28262892510ae6ce7d1c",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 1122,
+        "total_tokens": 2087
+      },
+      "latency": {
+        "generation": 18.017963886260986,
+        "eval": 9.178956031799316
+      }
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "category": "事实性",
+      "tags": [
+        "幻觉风险",
+        "地理"
+      ],
+      "question": "巴黎有几个区？请列出所有区的名字。",
+      "input_summary": {
+        "type": "single",
+        "question": "巴黎有几个区？请列出所有区的名字。"
+      },
+      "status": "success",
+      "answer": "巴黎共有 **20 个区**（arrondissements），按数字编号从 1 到 20，呈螺旋状分布。这些区的正式名称就是数字，没有独立的专名，但在中文里通常称为“巴黎第 X 区”或“巴黎 X 区”。完整列表如下：\n\n- 巴黎第 1 区（1er arrondissement）\n- 巴黎第 2 区（2e arrondissement）\n- 巴黎第 3 区（3e arrondissement）\n- 巴黎第 4 区（4e arrondissement）\n- 巴黎第 5 区（5e arrondissement）\n- 巴黎第 6 区（6e arrondissement）\n- 巴黎第 7 区（7e arrondissement）\n- 巴黎第 8 区（8e arrondissement）\n- 巴黎第 9 区（9e arrondissement）\n- 巴黎第 10 区（10e arrondissement）\n- 巴黎第 11 区（11e arrondissement）\n- 巴黎第 12 区（12e arrondissement）\n- 巴黎第 13 区（13e arrondissement）\n- 巴黎第 14 区（14e arrondissement）\n- 巴黎第 15 区（15e arrondissement）\n- 巴黎第 16 区（16e arrondissement）\n- 巴黎第 17 区（17e arrondissement）\n- 巴黎第 18 区（18e arrondissement）\n- 巴黎第 19 区（19e arrondissement）\n- 巴黎第 20 区（20e arrondissement）\n\n有些区因著名地标而拥有非正式别名（如第 1 区常被称为“卢浮区”，第 18 区有“蒙马特区”等），但官方名称始终是数字编号。",
+      "scores": {
+        "engine": "simple",
+        "metrics": {
+          "准确性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，完整列出20个区，并补充了命名规则和非正式别名，清晰直接，无冗余或错误，近乎完美。"
+          },
+          "完整性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，完整列出20个区，并补充了命名规则和非正式别名，清晰直接，无冗余或错误，近乎完美。"
+          },
+          "有用性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "回答准确无误，完整列出20个区，并补充了命名规则和非正式别名，清晰直接，无冗余或错误，近乎完美。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 3/3"
+          }
+        },
+        "overall_score": 0.85,
+        "overall_percent": 85.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 3/3); 回答准确无误，完整列出20个区，并补充了命名规则和非正式别名，清晰直接，无冗余或错误，近乎完美。 [严格校准：自评全5分已压至4]",
+        "_parse_ok": true,
+        "_judge_prompt": "你是一个严格、挑剔的评测裁判。请根据以下三个维度，对 AI 助手的回答进行 1-5 分打分（1 最差，5 最好），并给出简短理由。\n\n评分校准（必须遵守）：\n- 5 分：几乎无可挑剔，明显优于普通好答案（全数据集里应很少出现）\n- 4 分：整体良好，有小瑕疵或轻微遗漏\n- 3 分：基本可用，但有明显遗漏、冗余或部分不准确（多数合格回答应落在此档）\n- 2 分：有重要错误或只回答了一小部分\n- 1 分：严重错误、答非所问或有害\n\n维度说明：\n1. 准确性：事实是否正确、有无幻觉；与参考要点冲突时准确性不得高于 2 分\n2. 完整性：是否覆盖用户问题的必要要点；遗漏关键要点不得高于 3 分\n3. 有用性：是否直接、清晰；冗长啰嗦、答非所问应降低分数\n\n请以严格的 JSON 格式输出，不要包含其他文字：\n{\"准确性\": <int>, \"完整性\": <int>, \"有用性\": <int>, \"总评\": \"<简短理由>\"}\n\n用例类型：single\n用例类别：事实性\n用例标签：幻觉风险, 地理\n\n用户问题：\n巴黎有几个区？请列出所有区的名字。\n\nAI助手的回答：\n巴黎共有 **20 个区**（arrondissements），按数字编号从 1 到 20，呈螺旋状分布。这些区的正式名称就是数字，没有独立的专名，但在中文里通常称为“巴黎第 X 区”或“巴黎 X 区”。完整列表如下：\n\n- 巴黎第 1 区（1er arrondissement）\n- 巴黎第 2 区（2e arrondissement）\n- 巴黎第 3 区（3e arrondissement）\n- 巴黎第 4 区（4e arrondissement）\n- 巴黎第 5 区（5e arrondissement）\n- 巴黎第 6 区（6e arrondissement）\n- 巴黎第 7 区（7e arrondissement）\n- 巴黎第 8 区（8e arrondissement）\n- 巴黎第 9 区（9e arrondissement）\n- 巴黎第 10 区（10e arrondissement）\n- 巴黎第 11 区（11e arrondissement）\n- 巴黎第 12 区（12e arrondissement）\n- 巴黎第 13 区（13e arrondissement）\n- 巴黎第 14 区（14e arrondissement）\n- 巴黎第 15 区（15e arrondissement）\n- 巴黎第 16 区（16e arrondissement）\n- 巴黎第 17 区（17e arrondissement）\n- 巴黎第 18 区（18e arrondissement）\n- 巴黎第 19 区（19e arrondissement）\n- 巴黎第 20 区（20e arrondissement）\n\n有些区因著名地标而拥有非正式别名（如第 1 区常被称为“卢浮区”，第 18 区有“蒙马特区”等），但官方名称始终是数字编号。\n\n参考要点（评分依据，遗漏或冲突须扣分）：\n- 共20个区\n- 按1到20编号\n- 列出全部区名或编号\n\n严格模式：不要轻易给 5 分；除非近乎完美，否则最高 4 分。",
+        "_judge_raw": "{\"准确性\": 5, \"完整性\": 5, \"有用性\": 5, \"总评\": \"回答准确无误，完整列出20个区，并补充了命名规则和非正式别名，清晰直接，无冗余或错误，近乎完美。\"}"
+      },
+      "trace_id": "52b888ed3431d22979c1271988462fc7",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 788,
+        "completion_tokens": 1133,
+        "total_tokens": 1921
+      },
+      "latency": {
+        "generation": 21.44121265411377,
+        "eval": 5.739124774932861
+      }
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "category": "代码",
+      "tags": [
+        "Python",
+        "算法"
+      ],
+      "question": "如何用Python实现斐波那契数列？请给出代码。",
+      "input_summary": {
+        "type": "single",
+        "question": "如何用Python实现斐波那契数列？请给出代码。"
+      },
+      "status": "success",
+      "answer": "以下是几种常见的 Python 实现斐波那契数列的方法，你可以根据需求选择。\n\n### 1. 递归（最直观，但效率低）\n```python\ndef fib_recursive(n):\n    if n <= 1:\n        return n\n    return fib_recursive(n-1) + fib_recursive(n-2)\n\n# 示例：输出前10项\nfor i in range(10):\n    print(fib_recursive(i), end=' ')\n```\n**缺点**：大量重复计算，时间复杂度 O(2^n)，n 稍大就会很慢。\n\n### 2. 带缓存的递归（记忆化，效率高）\n```python\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef fib_memo(n):\n    if n < 2:\n        return n\n    return fib_memo(n-1) + fib_memo(n-2)\n```\n或手动用字典缓存：\n```python\ncache = {0: 0, 1: 1}\ndef fib_memo_manual(n):\n    if n not in cache:\n        cache[n] = fib_memo_manual(n-1) + fib_memo_manual(n-2)\n    return cache[n]\n```\n\n### 3. 迭代（循环，最常用，O(n) 时间，O(1) 空间）\n```python\ndef fib_iterative(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n\n# 输出前10项\nfor i in range(10):\n    print(fib_iterative(i), end=' ')\n```\n\n### 4. 生成器（按需生成，节省内存）\n```python\ndef fib_generator():\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\n# 使用示例：取前10项\ngen = fib_generator()\nfor _ in range(10):\n    print(next(gen), end=' ')\n```\n\n### 5. 返回整个数列（列表）\n```python\ndef fib_sequence(n):\n    seq = [0, 1]\n    for i in range(2, n):\n        seq.append(seq[-1] + seq[-2])\n    return seq[:n]\n\nprint(fib_sequence(10))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]\n```\n\n### 6. 矩阵快速幂（O(log n)，适合求超大第 n 项）\n```python\ndef fib_matrix(n):\n    def mat_mul(A, B):\n        return [[A[0][0]*B[0][0] + A[0][1]*B[1][0], A[0][0]*B[0][1] + A[0][1]*B[1][1]],\n                [A[1][0]*B[0][0] + A[1][1]*B[1][0], A[1][0]*B[0][1] + A[1][1]*B[1][1]]]\n    def mat_pow(M, p):\n        result = [[1, 0], [0, 1]]\n        while p:\n            if p & 1:\n                result = mat_mul(result, M)\n            M = mat_mul(M, M)\n            p >>= 1\n        return result\n    if n == 0:\n        return 0\n    M = [[1, 1], [1, 0]]\n    return mat_pow(M, n-1)[0][0]\n```\n\n**推荐**：日常使用**迭代**或**生成器**，简单高效；若需多次调用，用**记忆化递归**；求极大项时用**矩阵快速幂**。",
+      "scores": {
+        "engine": "simple",
+        "metrics": {
+          "准确性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "代码全部正确可运行，覆盖了从基础递归到矩阵快速幂的多种实现，并附有复杂度说明和场景推荐，几乎无可挑剔。"
+          },
+          "完整性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "代码全部正确可运行，覆盖了从基础递归到矩阵快速幂的多种实现，并附有复杂度说明和场景推荐，几乎无可挑剔。"
+          },
+          "有用性": {
+            "score": 0.8,
+            "raw_score": 4,
+            "passed": true,
+            "reason": "代码全部正确可运行，覆盖了从基础递归到矩阵快速幂的多种实现，并附有复杂度说明和场景推荐，几乎无可挑剔。"
+          },
+          "objective_check": {
+            "score": 0.0,
+            "passed": false,
+            "reason": "要点覆盖 0/3，未覆盖: 可运行代码; 至少一种实现"
+          }
+        },
+        "overall_score": 0.6,
+        "overall_percent": 60.0,
+        "passed_all": false,
+        "summary": "objective=0.00(要点覆盖 0/3，未覆盖: 可运行代码; 至少一种实现); 代码全部正确可运行，覆盖了从基础递归到矩阵快速幂的多种实现，并附有复杂度说明和场景推荐，几乎无可挑剔。 [严格校准：自评全5分已压至4]",
+        "_parse_ok": true,
+        "_judge_prompt": "你是一个严格、挑剔的评测裁判。请根据以下三个维度，对 AI 助手的回答进行 1-5 分打分（1 最差，5 最好），并给出简短理由。\n\n评分校准（必须遵守）：\n- 5 分：几乎无可挑剔，明显优于普通好答案（全数据集里应很少出现）\n- 4 分：整体良好，有小瑕疵或轻微遗漏\n- 3 分：基本可用，但有明显遗漏、冗余或部分不准确（多数合格回答应落在此档）\n- 2 分：有重要错误或只回答了一小部分\n- 1 分：严重错误、答非所问或有害\n\n维度说明：\n1. 准确性：事实是否正确、有无幻觉；与参考要点冲突时准确性不得高于 2 分\n2. 完整性：是否覆盖用户问题的必要要点；遗漏关键要点不得高于 3 分\n3. 有用性：是否直接、清晰；冗长啰嗦、答非所问应降低分数\n\n请以严格的 JSON 格式输出，不要包含其他文字：\n{\"准确性\": <int>, \"完整性\": <int>, \"有用性\": <int>, \"总评\": \"<简短理由>\"}\n\n用例类型：single\n用例类别：代码\n用例标签：Python, 算法\n\n用户问题：\n如何用Python实现斐波那契数列？请给出代码。\n\nAI助手的回答：\n以下是几种常见的 Python 实现斐波那契数列的方法，你可以根据需求选择。\n\n### 1. 递归（最直观，但效率低）\n```python\ndef fib_recursive(n):\n    if n <= 1:\n        return n\n    return fib_recursive(n-1) + fib_recursive(n-2)\n\n# 示例：输出前10项\nfor i in range(10):\n    print(fib_recursive(i), end=' ')\n```\n**缺点**：大量重复计算，时间复杂度 O(2^n)，n 稍大就会很慢。\n\n### 2. 带缓存的递归（记忆化，效率高）\n```python\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef fib_memo(n):\n    if n < 2:\n        return n\n    return fib_memo(n-1) + fib_memo(n-2)\n```\n或手动用字典缓存：\n```python\ncache = {0: 0, 1: 1}\ndef fib_memo_manual(n):\n    if n not in cache:\n        cache[n] = fib_memo_manual(n-1) + fib_memo_manual(n-2)\n    return cache[n]\n```\n\n### 3. 迭代（循环，最常用，O(n) 时间，O(1) 空间）\n```python\ndef fib_iterative(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n\n# 输出前10项\nfor i in range(10):\n    print(fib_iterative(i), end=' ')\n```\n\n### 4. 生成器（按需生成，节省内存）\n```python\ndef fib_generator():\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\n# 使用示例：取前10项\ngen = fib_generator()\nfor _ in range(10):\n    print(next(gen), end=' ')\n```\n\n### 5. 返回整个数列（列表）\n```python\ndef fib_sequence(n):\n    seq = [0, 1]\n    for i in range(2, n):\n        seq.append(seq[-1] + seq[-2])\n    return seq[:n]\n\nprint(fib_sequence(10))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]\n```\n\n### 6. 矩阵快速幂（O(log n)，适合求超大第 n 项）\n```python\ndef fib_matrix(n):\n    def mat_mul(A, B):\n        return [[A[0][0]*B[0][0] + A[0][1]*B[1][0], A[0][0]*B[0][1] + A[0][1]*B[1][1]],\n                [A[1][0]*B[0][0] + A[1][1]*B[1][0], A[1][0]*B[0][1] + A[1][1]*B[1][1]]]\n    def mat_pow(M, p):\n        result = [[1, 0], [0, 1]]\n        while p:\n            if p & 1:\n                result = mat_mul(result, M)\n            M = mat_mul(M, M)\n            p >>= 1\n        return result\n    if n == 0:\n        return 0\n    M = [[1, 1], [1, 0]]\n    return mat_pow(M, n-1)[0][0]\n```\n\n**推荐**：日常使用**迭代**或**生成器**，简单高效；若需多次调用，用**记忆化递归**；求极大项时用**矩阵快速幂**。\n\n参考要点（评分依据，遗漏或冲突须扣分）：\n- 可运行代码\n- 至少一种实现\n- 结果正确\n\n严格模式：不要轻易给 5 分；除非近乎完美，否则最高 4 分。",
+        "_judge_raw": "{\"准确性\": 5, \"完整性\": 5, \"有用性\": 5, \"总评\": \"代码全部正确可运行，覆盖了从基础递归到矩阵快速幂的多种实现，并附有复杂度说明和场景推荐，几乎无可挑剔。\"}"
+      },
+      "trace_id": "59e90d685a797581dcf35bdaee997c30",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1206,
+        "completion_tokens": 1593,
+        "total_tokens": 2799
+      },
+      "latency": {
+        "generation": 18.493401527404785,
+        "eval": 16.5827853679657
+      }
+    }
+  ]
+}

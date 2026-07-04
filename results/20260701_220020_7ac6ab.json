@@ -1,0 +1,1304 @@
+{
+  "schema_version": "llm-eval-report/v2",
+  "run": {
+    "run_id": "20260701_220020_7ac6ab",
+    "generated_at": "2026-07-01T22:13:37.884998",
+    "status": "completed"
+  },
+  "config": {
+    "model": "deepseek-ai/DeepSeek-V4-Pro",
+    "judge_model": "Qwen/Qwen2.5-72B-Instruct",
+    "eval_engine": "deepeval",
+    "eval_strict": true,
+    "metric_threshold": 0.7,
+    "dataset": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_dataset.json",
+    "case_count": 16,
+    "eval_suite": "golden",
+    "fail_under": 85.0,
+    "ci_mode": true
+  },
+  "summary": {
+    "success_count": 16,
+    "failed_count": 0,
+    "overall_score": 0.9477,
+    "overall_percent": 94.8,
+    "score_distribution": {
+      "<60%": 0,
+      "60-79%": 1,
+      "80-89%": 3,
+      "90-94%": 3,
+      "95-100%": 9
+    },
+    "metric_averages": {
+      "answer_relevancy": 0.9846,
+      "conversation_completeness": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "hallucination_quality": 1.0,
+      "knowledge_retention": 1.0,
+      "multi_turn_quality": 1.0,
+      "objective_check": 0.8073
+    },
+    "by_category": {
+      "事实问答": {
+        "case_count": 3,
+        "overall_score": 0.9097,
+        "overall_percent": 91.0
+      },
+      "代码": {
+        "case_count": 1,
+        "overall_score": 0.875,
+        "overall_percent": 87.5
+      },
+      "代码调试": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "创意": {
+        "case_count": 1,
+        "overall_score": 0.75,
+        "overall_percent": 75.0
+      },
+      "多轮对话": {
+        "case_count": 3,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "推理": {
+        "case_count": 1,
+        "overall_score": 0.9347,
+        "overall_percent": 93.5
+      },
+      "数学推理": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "格式遵循": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "真实场景问答": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "知识解释": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "规划": {
+        "case_count": 1,
+        "overall_score": 0.875,
+        "overall_percent": 87.5
+      },
+      "边界": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "case_count": 6,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      },
+      "hard": {
+        "case_count": 2,
+        "overall_score": 0.9673,
+        "overall_percent": 96.7
+      },
+      "medium": {
+        "case_count": 8,
+        "overall_score": 0.9505,
+        "overall_percent": 95.1
+      }
+    },
+    "by_sampling_strategy": {
+      "事实性问答": {
+        "case_count": 1,
+        "overall_score": 0.9167,
+        "overall_percent": 91.7
+      },
+      "基础文化常识": {
+        "case_count": 1,
+        "overall_score": 0.875,
+        "overall_percent": 87.5
+      },
+      "基础概念覆盖": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "开放生成": {
+        "case_count": 1,
+        "overall_score": 0.75,
+        "overall_percent": 75.0
+      },
+      "指代消解": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "时效性事实": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      },
+      "格式约束": {
+        "case_count": 2,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "真实场景采样": {
+        "case_count": 4,
+        "overall_score": 0.9688,
+        "overall_percent": 96.9
+      },
+      "真实开发任务": {
+        "case_count": 2,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      },
+      "精确计算": {
+        "case_count": 1,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      },
+      "经典逻辑题": {
+        "case_count": 1,
+        "overall_score": 0.9347,
+        "overall_percent": 93.5
+      }
+    },
+    "by_suite": {
+      "golden": {
+        "case_count": 16,
+        "overall_score": 0.9477,
+        "overall_percent": 94.8
+      },
+      "smoke": {
+        "case_count": 3,
+        "overall_score": 1.0,
+        "overall_percent": 100.0
+      }
+    }
+  },
+  "artifacts": {
+    "markdown_report": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_report.md",
+    "latest_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results.json",
+    "archive_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results\\20260701_220020_7ac6ab.json"
+  },
+  "results": [
+    {
+      "id": 1,
+      "type": "single",
+      "category": "知识解释",
+      "difficulty": "easy",
+      "sampling_strategy": "基础概念覆盖",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "概念",
+        "机器学习",
+        "基础样本"
+      ],
+      "question": "解释一下什么是机器学习中的过拟合。",
+      "input_summary": {
+        "type": "single",
+        "question": "解释一下什么是机器学习中的过拟合。"
+      },
+      "status": "success",
+      "answer": "过拟合是机器学习中一个核心概念，指的是模型在训练数据上表现极好，但在未见过的数据（测试集或真实场景）上表现很差的现象。简单说，就是模型“死记硬背”了训练样本，却没能真正理解背后的规律。\n\n### 一个直观的类比\n可以把模型想象成一个学生：\n- **正常学习**：学生理解了数学公式的原理，即使考试题目换数字、换问法，也能做对。\n- **过拟合**：学生把练习册里所有题目的答案都背了下来。如果考试出原题，他能得满分；但只要题目稍有变化，他就完全不会了。他记住的是题目里的印刷瑕疵、页码等无关细节，而不是真正的解题方法。\n\n### 为什么会发生过拟合？\n1. **模型过于复杂**：比如用高次多项式去拟合几个点，曲线会剧烈扭动穿过每一个点，但点与点之间的预测值可能完全离谱。深度神经网络参数过多也容易这样。\n2. **训练数据太少**：数据量不足以代表整体分布，模型很容易把个别样本的随机波动当成普遍规律。\n3. **训练时间过长**：模型不断“琢磨”训练集，连噪声和异常值都拟合了进去。\n4. **特征过多且无关**：输入包含大量与目标无关的特征，模型可能利用这些虚假关联来降低训练误差。\n\n### 过拟合的表现\n- **训练误差极低**，甚至为零。\n- **验证/测试误差明显高于训练误差**，且随着训练进行，验证误差不降反升。\n- 学习曲线中，两条曲线之间出现很大的“鸿沟”。\n\n### 过拟合的后果\n模型的**泛化能力**变差，部署到真实环境后预测不准，失去实用价值。\n\n### 如何应对过拟合？\n- **增加数据量**：最根本的方法，让模型看到更多样的情况。也可用数据增强（图像旋转、裁剪等）变相扩大数据集。\n- **简化模型**：减少层数、神经元数，或用更简单的算法。\n- **正则化**：在损失函数中加入惩罚项，限制参数大小（L1/L2正则化），让模型更“平滑”。\n- **Dropout**：训练时随机丢弃一部分神经元，强迫网络不依赖特定路径，提升鲁棒性。\n- **早停**：监控验证集误差，在它开始上升前停止训练。\n- **交叉验证**：用不同划分方式评估模型，选择泛化最好的超参数。\n- **集成学习**：如随机森林、Bagging，综合多个模型的预测，降低单个模型过拟合的风险。\n\n总之，过拟合是机器学习中“高方差”的体现，核心矛盾在于模型记住了训练数据的特殊细节而非一般规律。实际建模时，我们需要在“拟合训练数据”和“保持泛化能力”之间找到平衡。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the input question without any irrelevant statements. Keep up the good work!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停等应对方法。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...); correctness=1.00 (实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停等应对方法。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "570b6aacd430876741f9c75b95e22778",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 841,
+        "total_tokens": 853
+      },
+      "latency": {
+        "generation": 21.494625568389893,
+        "eval": 43.47143840789795
+      }
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "medium",
+      "sampling_strategy": "事实性问答",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "地理",
+        "实体知识",
+        "事实核查"
+      ],
+      "question": "巴黎有几个区？请列出它们的编号范围。",
+      "input_summary": {
+        "type": "single",
+        "question": "巴黎有几个区？请列出它们的编号范围。"
+      },
+      "status": "success",
+      "answer": "巴黎市共有 **20 个区**（arrondissements），编号范围是 **1 到 20**。  \n这些区以螺旋状从市中心向外排列，1 区位于塞纳河右岸的中心，然后顺时针向外延伸至 20 区。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the input by providing the correct number of districts in Paris and their numbering range, with no irrelevant statements."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出正确地列出了巴黎的区数和编号范围，没有编造不存在的区，完全符合期望输出的要求。"
+          },
+          "hallucination": {
+            "score": 1.0,
+            "raw_score": 0.0,
+            "direction": "lower_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because the actual output is fully aligned with the provided contexts, and there are no contradictions or hallucinations."
+          },
+          "objective_check": {
+            "score": 0.6667,
+            "passed": false,
+            "reason": "要点覆盖 2/3，未覆盖: 不应编造不存在的区"
+          }
+        },
+        "overall_score": 0.9167,
+        "overall_percent": 91.7,
+        "passed_all": false,
+        "summary": "objective=0.67(要点覆盖 2/3，未覆盖: 不应编造不存在的区); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出正确地列出了巴黎的区数和编号范围，没有编造不存在的区，完全符合期望输出的要求。...); hallucination_risk=0.00,quality=1.00 (The score is 0.00 because the actual output is fully aligned...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "a1a41e77667b35e5385b99ff522a5bd1",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 275,
+        "total_tokens": 289
+      },
+      "latency": {
+        "generation": 9.416756391525269,
+        "eval": 19.00272846221924
+      }
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "category": "代码",
+      "difficulty": "medium",
+      "sampling_strategy": "真实开发任务",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "Python",
+        "算法",
+        "可执行性"
+      ],
+      "question": "如何用 Python 实现斐波那契数列？请给出一个可运行函数，并说明时间复杂度。",
+      "input_summary": {
+        "type": "single",
+        "question": "如何用 Python 实现斐波那契数列？请给出一个可运行函数，并说明时间复杂度。"
+      },
+      "status": "success",
+      "answer": "下面给出一个**迭代版本**的斐波那契数列函数，时间复杂度为 **O(n)**，空间复杂度为 **O(1)**，非常高效且易于理解。\n\n```python\ndef fibonacci(n: int) -> int:\n    \"\"\"\n    返回第 n 个斐波那契数（F(0)=0, F(1)=1）\n    n 应为非负整数\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n 必须为非负整数\")\n    if n == 0:\n        return 0\n    if n == 1:\n        return 1\n\n    a, b = 0, 1  # F(0) 和 F(1)\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\n### 时间复杂度分析\n- 循环从 2 到 n，共执行 **n-1** 次迭代。\n- 每次迭代只做常数次加法和赋值操作。\n- 因此时间复杂度为 **O(n)**。\n\n### 其他常见实现及复杂度对比\n1. **朴素递归**  \n   ```python\n   def fib_rec(n):\n       if n <= 1: return n\n       return fib_rec(n-1) + fib_rec(n-2)\n   ```\n   时间复杂度：**O(2^n)**（指数级），因为大量重复计算，n 稍大即不可用。\n\n2. **记忆化递归（自顶向下 DP）**  \n   时间复杂度：**O(n)**，空间复杂度 O(n)（递归栈 + 缓存）。\n\n3. **矩阵快速幂**  \n   利用公式：  \n   ```\n   [F(n+1) F(n)  ]   = [1 1]^n\n   [F(n)   F(n-1)]     [1 0]\n   ```\n   时间复杂度：**O(log n)**，适合极大 n，但常数较大，代码稍复杂。\n\n对于绝大多数场景，上面给出的迭代函数是最佳平衡点：代码简单、运行快速、无递归深度限制。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the input by providing a Python function to generate the Fibonacci sequence and explaining its time complexity. Great job!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出提供了可运行的迭代版本斐波那契数列函数，结果正确，详细说明了迭代思路和时间复杂度，完全符合期望输出的要求。"
+          },
+          "objective_check": {
+            "score": 0.5,
+            "passed": false,
+            "reason": "要点覆盖 2/4，未覆盖: 结果正确; 说明递归或迭代思路"
+          }
+        },
+        "overall_score": 0.875,
+        "overall_percent": 87.5,
+        "passed_all": false,
+        "summary": "objective=0.50(要点覆盖 2/4，未覆盖: 结果正确; 说明递归或迭代思路); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出提供了可运行的迭代版本斐波那契数列函数，结果正确，详细说明了迭代思路和时间复杂度，完全符合期望输出的要求。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "b4228d92fbea6e7bc0c7ad04e30e3e66",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 26,
+        "completion_tokens": 661,
+        "total_tokens": 687
+      },
+      "latency": {
+        "generation": 18.235174894332886,
+        "eval": 22.96087884902954
+      }
+    },
+    {
+      "id": 4,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "medium",
+      "sampling_strategy": "时效性事实",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "诺贝尔奖",
+        "事实检索",
+        "幻觉风险"
+      ],
+      "question": "2024 年诺贝尔物理学奖颁给了谁？他们的主要贡献是什么？",
+      "input_summary": {
+        "type": "single",
+        "question": "2024 年诺贝尔物理学奖颁给了谁？他们的主要贡献是什么？"
+      },
+      "status": "success",
+      "answer": "2024 年诺贝尔物理学奖授予了**约翰·霍普菲尔德（John J. Hopfield）**和**杰弗里·辛顿（Geoffrey E. Hinton）**，以表彰他们“**在人工神经网络机器学习方面的基础性发现和发明**”。\n\n他们的主要贡献分别如下：\n\n**1. 约翰·霍普菲尔德（美国普林斯顿大学）**\n- **发明了霍普菲尔德网络**：这是一种能够存储和重建信息模式（如图像）的联想记忆模型。\n- **核心原理**：他利用物理学中描述自旋系统能量的概念，将网络的状态类比为一个能量景观。网络通过寻找能量最低点，能够从部分或扭曲的输入中恢复出完整的存储模式，就像记忆的“联想”过程。\n- **意义**：这项工作将统计物理学的思想引入神经网络，为理解大脑的计算原理提供了物理模型。\n\n**2. 杰弗里·辛顿（加拿大多伦多大学）**\n- **发明了玻尔兹曼机**：他以霍普菲尔德网络为基础，结合统计物理学中的玻尔兹曼分布，开发了一种能够自主学习数据中内在特征的概率模型。\n- **推动反向传播算法**：辛顿是让反向传播算法成为训练多层神经网络标准方法的关键推动者之一，该算法至今仍是深度学习的基础。\n- **意义**：他的工作直接催生了现代深度学习革命，使机器能够从海量数据中自动发现规律，广泛应用于图像识别、语音翻译、大语言模型（如ChatGPT）等当今人工智能的核心领域。\n\n诺贝尔奖委员会认为，他们利用物理学工具构建的方法，为当今强大的机器学习技术奠定了基础。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the question, providing the names of the 2024 Nobel Physics Prize winners and their main contributions. Great job!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合输入要求，正确提到了2024年诺贝尔物理学奖的获奖者及其主要贡献，且没有编造、过度推断、答非所问或无关冗余的内容。"
+          },
+          "hallucination": {
+            "score": 1.0,
+            "raw_score": 0.0,
+            "direction": "lower_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because there are no contradictions between the actual output and the contexts, and all factual alignments are correct."
+          },
+          "objective_check": {
+            "score": 0.75,
+            "passed": true,
+            "reason": "要点覆盖 3/4，未覆盖: 不应回答成其他奖项"
+          }
+        },
+        "overall_score": 0.9375,
+        "overall_percent": 93.8,
+        "passed_all": true,
+        "summary": "objective=0.75(要点覆盖 3/4，未覆盖: 不应回答成其他奖项); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出完全符合输入要求，正确提到了2024年诺贝尔物理学奖的获奖者及其主要贡献，且没有编造、过度推断、答非所问或无关冗...); hallucination_risk=0.00,quality=1.00 (The score is 0.00 because there are no contradictions betwee...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "d5bd7746fb641621b5f6024a72a8d3fb",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 806,
+        "total_tokens": 826
+      },
+      "latency": {
+        "generation": 24.048693418502808,
+        "eval": 39.28352761268616
+      }
+    },
+    {
+      "id": 5,
+      "type": "single",
+      "category": "创意",
+      "difficulty": "easy",
+      "sampling_strategy": "开放生成",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "写作",
+        "软件测试",
+        "风格约束"
+      ],
+      "question": "写一首关于软件测试的打油诗，要求四句，每句尽量押韵。",
+      "input_summary": {
+        "type": "single",
+        "question": "写一首关于软件测试的打油诗，要求四句，每句尽量押韵。"
+      },
+      "status": "success",
+      "answer": "测试用例写一堆，  \n跑完发现全是雷。  \n改完代码再回归，  \n测试人员心好累。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the input request with no irrelevant statements. It's a great job!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出为四句诗歌形式，内容与软件测试主题相关，语言通顺有趣，且每句都押韵。"
+          },
+          "objective_check": {
+            "score": 0.0,
+            "passed": false,
+            "reason": "要点覆盖 0/4，未覆盖: 四句诗歌形式; 与软件测试主题相关"
+          }
+        },
+        "overall_score": 0.75,
+        "overall_percent": 75.0,
+        "passed_all": false,
+        "summary": "objective=0.00(要点覆盖 0/4，未覆盖: 四句诗歌形式; 与软件测试主题相关); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出为四句诗歌形式，内容与软件测试主题相关，语言通顺有趣，且每句都押韵。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "95cecedfe2388d2b164f588269d82995",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 23,
+        "completion_tokens": 2269,
+        "total_tokens": 2292
+      },
+      "latency": {
+        "generation": 59.28325152397156,
+        "eval": 7.95041823387146
+      }
+    },
+    {
+      "id": 6,
+      "type": "single",
+      "category": "数学推理",
+      "difficulty": "easy",
+      "sampling_strategy": "精确计算",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "计算",
+        "精确性",
+        "短答案"
+      ],
+      "question": "997 × 383 等于多少？请只给出最终数字。",
+      "input_summary": {
+        "type": "single",
+        "question": "997 × 383 等于多少？请只给出最终数字。"
+      },
+      "status": "success",
+      "answer": "381851",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly matches the input requirement, providing only the final number without any irrelevant statements."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出为381851，符合输入要求997 × 383的计算结果，且只输出了最终数字，没有额外解释，完全符合期望输出。"
+          },
+          "hallucination": {
+            "score": 1.0,
+            "raw_score": 0.0,
+            "direction": "lower_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because the actual output perfectly aligns with the provided context, with no contradictions or additional information that was not requested."
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "答案包含期望值 381851"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(答案包含期望值 381851); answer_relevancy=1.00 (The score is 1.00 because the output perfectly matches the i...); correctness=1.00 (实际输出为381851，符合输入要求997 × 383的计算结果，且只输出了最终数字，没有额外解释，完全符合期望输出。...); hallucination_risk=0.00,quality=1.00 (The score is 0.00 because the actual output perfectly aligns...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "4cfa3890079ea8dae2cf0239cea41e85",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 18,
+        "completion_tokens": 81,
+        "total_tokens": 99
+      },
+      "latency": {
+        "generation": 3.6093192100524902,
+        "eval": 13.316824913024902
+      }
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "category": "推理",
+      "difficulty": "hard",
+      "sampling_strategy": "经典逻辑题",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "逻辑",
+        "多步推理",
+        "约束满足"
+      ],
+      "question": "有三个盒子，分别标着「苹果」「橙子」「苹果和橙子」，但所有标签都贴错了。你只能从一个盒子里拿出一个水果查看，如何一次就确定每个盒子里装的是什么？",
+      "input_summary": {
+        "type": "single",
+        "question": "有三个盒子，分别标着「苹果」「橙子」「苹果和橙子」，但所有标签都贴错了。你只能从一个盒子里拿出一个水果查看，如何一次就确定每个盒子里装的是什么？"
+      },
+      "status": "success",
+      "answer": "要解决这个问题，关键在于利用“所有标签都贴错了”这一条件。你应该从标有「苹果和橙子」的盒子里拿出一个水果查看。\n\n推理过程如下：\n- 因为标签全错，标有「苹果和橙子」的盒子不可能装混合水果，里面一定是纯苹果或纯橙子。\n- 从该盒中拿出一个水果：\n  - **如果拿出苹果**：则该盒实际装的是苹果。剩下标有「苹果」和「橙子」的两个盒子。标有「苹果」的盒子不能装苹果（标签错），也不能装苹果（苹果已在第一个盒子），所以它只能装橙子。标有「橙子」的盒子则装的是苹果和橙子。\n  - **如果拿出橙子**：则该盒实际装的是橙子。同理，标有「橙子」的盒子不能装橙子，也不能装橙子（橙子已在第一个盒子），所以它只能装苹果。标有「苹果」的盒子则装的是苹果和橙子。\n\n这样，只取一次水果就能唯一确定所有盒子内的真实内容。如果从其他盒子取，可能会出现无法区分的情况，不能保证一次成功。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 0.8,
+            "raw_score": 0.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because the actual output contains statements that directly contradict the given condition that all labels are wrong. This makes the provided solution incorrect and irrelevant to the problem, as it suggests possibilities that are not feasible under the problem's constraints. [校准：Correctness≥0.95 时 AR 兜底]"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合期望输出的所有要点，包括从标有「苹果和橙子」的盒子取水果，利用所有标签都贴错的条件，以及根据取出的水果推断全部盒子的完整逻辑。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 0.9347,
+        "overall_percent": 93.5,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); answer_relevancy=0.80 (The score is 0.00 because the actual output contains stateme...); correctness=1.00 (实际输出完全符合期望输出的所有要点，包括从标有「苹果和橙子」的盒子取水果，利用所有标签都贴错的条件，以及根据取出的水果推...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "c7cf3e05c35e97dcd93245694a477675",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 48,
+        "completion_tokens": 1243,
+        "total_tokens": 1291
+      },
+      "latency": {
+        "generation": 34.15094351768494,
+        "eval": 25.634991884231567
+      }
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "easy",
+      "sampling_strategy": "基础文化常识",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "中文文化",
+        "文学",
+        "事实核查"
+      ],
+      "question": "《红楼梦》的作者一般认为是哪位？成书大约是什么时期？",
+      "input_summary": {
+        "type": "single",
+        "question": "《红楼梦》的作者一般认为是哪位？成书大约是什么时期？"
+      },
+      "status": "success",
+      "answer": "《红楼梦》的作者一般认为是**曹雪芹**。  \n这部小说成书于**清代乾隆年间**，大约在18世纪中叶。前80回为曹雪芹所作，后40回通常认为是高鹗、程伟元整理续补。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly addresses the input by correctly identifying the author of 《红楼梦》 and providing the approximate period when the book was written. There are no irrelevant statements, so the score is at its maximum."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合期望要点，正确提到作者曹雪芹，成书时期清代乾隆年间，且提及后40回的续补争议，表述未绝对化。"
+          },
+          "hallucination": {
+            "score": 1.0,
+            "raw_score": 0.0,
+            "direction": "lower_is_better",
+            "passed": true,
+            "reason": "The score is 0.00 because the actual output is fully aligned with the provided contexts, and there are no contradictions or absolute statements that could lead to misinformation."
+          },
+          "objective_check": {
+            "score": 0.5,
+            "passed": false,
+            "reason": "要点覆盖 2/4，未覆盖: 可提及高鹗续书或后四十回争议; 表述不绝对化"
+          }
+        },
+        "overall_score": 0.875,
+        "overall_percent": 87.5,
+        "passed_all": false,
+        "summary": "objective=0.50(要点覆盖 2/4，未覆盖: 可提及高鹗续书或后四十回争议; 表述不绝对化); answer_relevancy=1.00 (The score is 1.00 because the output perfectly addresses the...); correctness=1.00 (实际输出完全符合期望要点，正确提到作者曹雪芹，成书时期清代乾隆年间，且提及后40回的续补争议，表述未绝对化。...); hallucination_risk=0.00,quality=1.00 (The score is 0.00 because the actual output is fully aligned...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "7ff666792a50691eaeb5c1f6a35982ba",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 18,
+        "completion_tokens": 175,
+        "total_tokens": 193
+      },
+      "latency": {
+        "generation": 7.342181921005249,
+        "eval": 32.168726205825806
+      }
+    },
+    {
+      "id": 11,
+      "type": "single",
+      "category": "代码调试",
+      "difficulty": "medium",
+      "sampling_strategy": "真实开发任务",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "Python",
+        "调试",
+        "边界条件"
+      ],
+      "question": "下面代码意图打印 1 到 5，但运行结果不对。请指出错误并给出修复：\nfor i in range(1, 5):\n    print(i)",
+      "input_summary": {
+        "type": "single",
+        "question": "下面代码意图打印 1 到 5，但运行结果不对。请指出错误并给出修复：\nfor i in range(1, 5):\n    print(i)"
+      },
+      "status": "success",
+      "answer": "错误在于 `range(1, 5)` 生成的序列是 `1, 2, 3, 4`，不包含结束值 `5`。`range` 的结束参数是开区间。\n\n**修复方法**：将结束值改为 `6`，即 `range(1, 6)`。\n\n```python\nfor i in range(1, 6):\n    print(i)\n```",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the input by identifying and explaining the error in the code, and providing a correct version. Great job!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出准确指出了 `range(1, 5)` 生成的序列不包含 `5`，并正确建议将结束值改为 `6`。同时，提供了修复后的代码，并解释了 Python `range` 的右边界不包含特性。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...); correctness=1.00 (实际输出准确指出了 `range(1, 5)` 生成的序列不包含 `5`，并正确建议将结束值改为 `6`。同时，提供了修...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "f2388f81e6721fd299148b3c6a13ac96",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 41,
+        "completion_tokens": 216,
+        "total_tokens": 257
+      },
+      "latency": {
+        "generation": 6.125890731811523,
+        "eval": 9.784714221954346
+      }
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "category": "格式遵循",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "JSON",
+        "指令遵循",
+        "结构化输出"
+      ],
+      "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。",
+      "input_summary": {
+        "type": "single",
+        "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。"
+      },
+      "status": "success",
+      "answer": "{\"name\": \"张三\", \"age\": 28, \"city\": \"上海\"}",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output is perfectly relevant and directly addresses the input requirements. Keep up the good work!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合输入要求，包含所有期望的字段且格式正确。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "JSON 结构与字段值正确"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(JSON 结构与字段值正确); answer_relevancy=1.00 (The score is 1.00 because the output is perfectly relevant a...); correctness=1.00 (实际输出完全符合输入要求，包含所有期望的字段且格式正确。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "56f963bcbaa90040517559d588774156",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 29,
+        "completion_tokens": 66,
+        "total_tokens": 95
+      },
+      "latency": {
+        "generation": 3.080157518386841,
+        "eval": 7.186990737915039
+      }
+    },
+    {
+      "id": 13,
+      "type": "rag",
+      "category": "真实场景问答",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "客服",
+        "RAG",
+        "忠实性"
+      ],
+      "question": "根据资料，我签收后第5天、商品未拆封，能否退货？运费谁出？",
+      "input_summary": {
+        "type": "rag",
+        "question": "根据资料，我签收后第5天、商品未拆封，能否退货？运费谁出？",
+        "context_doc_count": 2,
+        "context_titles": [
+          "退换货政策",
+          "会员权益"
+        ]
+      },
+      "status": "success",
+      "answer": "根据《星云科技线上商城退换货规则（2024版）》，签收后7个自然日内可申请退货，且商品须保持未拆封、未激活。您在第5天申请退货且商品未拆封，符合退货条件。  \n关于运费：规则明确“退货运费由买家承担，质量问题除外”，您未提及质量问题，因此运费需由您承担。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "faithfulness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because there are no contradictions, indicating that the actual output is perfectly aligned with the retrieval context. Great job!"
+          },
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the question about whether the item can be returned within 5 days of receipt if unopened, and who would cover the shipping costs. There are no irrelevant statements."
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); faithfulness=1.00 (The score is 1.00 because there are no contradictions, indic...); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "bce9f7d06b0bb012064dea804ab3d349",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 211,
+        "completion_tokens": 258,
+        "total_tokens": 469
+      },
+      "latency": {
+        "generation": 7.805019378662109,
+        "eval": 21.443901300430298
+      }
+    },
+    {
+      "id": 14,
+      "type": "single",
+      "category": "规划",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "旅行",
+        "多约束",
+        "实用性"
+      ],
+      "question": "帮我规划北京一日游：上午看历史，下午逛胡同，晚上吃烤鸭。给出简要时间表和地点建议。",
+      "input_summary": {
+        "type": "single",
+        "question": "帮我规划北京一日游：上午看历史，下午逛胡同，晚上吃烤鸭。给出简要时间表和地点建议。"
+      },
+      "status": "success",
+      "answer": "以下是一个紧凑且经典的北京一日游方案，兼顾历史、胡同与烤鸭，时间安排合理，适合初次体验者。\n\n---\n\n### 上午：看历史\n**地点：故宫博物院**  \n- **7:30** 到达午门广场排队（需提前7天在“故宫博物院”小程序预约，门票60元）。  \n- **8:30** 开馆即入，沿中轴线游览太和殿、乾清宫等，可加选珍宝馆（10元）。  \n- **12:00** 从神武门出，结束约3.5小时的核心游览。  \n- **衔接**：出神武门后，步行至景山公园（门票2元），登万春亭俯瞰故宫全景，约12:30下山。\n\n---\n\n### 下午：逛胡同\n**地点：什刹海 + 烟袋斜街 + 南锣鼓巷**  \n- **13:00** 从景山西门步行至什刹海（约10分钟），在荷花市场附近简单午餐（如烤肉季小吃）。  \n- **13:30-17:00** 漫步胡同区：  \n  - 先逛**烟袋斜街**（老字号、文创小店），穿行至**后海**沿岸，看野鸭、垂柳。  \n  - 再沿**南锣鼓巷**主街及两侧胡同（如雨儿胡同、帽儿胡同），体验四合院风情，可坐人力车（约80-100元/人，可议价）。  \n- 全程步行约3-4小时，节奏自由，累了可在胡同咖啡馆歇脚。\n\n---\n\n### 晚上：吃烤鸭\n**地点：全聚德什刹海店**  \n- **18:00** 到达餐厅（地安门西大街57号，荷花市场内，紧邻什刹海）。  \n- 推荐提前1天电话订位（010-66171568），避免排队。  \n- 必点：精品烤鸭（298元/只）、芥末鸭掌、小鸭酥，人均约150-200元。  \n- 饭后可沿什刹海散步消食，看夜景。\n\n---\n\n### 实用提醒\n- **交通**：全天景点集中，步行+短途地铁即可（故宫到什刹海无需乘车）。  \n- **预约**：故宫门票紧张，务必提前抢票；全聚德周末建议订位。  \n- **备选**：若故宫未约到，上午可改**天坛公园**（祈年殿、回音壁，8:00-11:00），下午转**前门大栅栏**胡同，晚上吃**便宜坊鲜鱼口店**（焖炉烤鸭）。  \n\n这样一天下来，历史、烟火气与美食兼得，节奏张弛有度。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the request with no irrelevant statements, providing a concise and relevant time table and location suggestions for a day in Beijing."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合期望输出的所有要点，包括上午的历史景点（故宫博物院）、下午的胡同游览（什刹海、烟袋斜街、南锣鼓巷）和晚上的烤鸭安排（全聚德什刹海店）。路线和时间安排合理，可执行性强。"
+          },
+          "objective_check": {
+            "score": 0.5,
+            "passed": false,
+            "reason": "要点覆盖 2/4，未覆盖: 地点与北京场景匹配; 路线和时间基本可执行"
+          }
+        },
+        "overall_score": 0.875,
+        "overall_percent": 87.5,
+        "passed_all": false,
+        "summary": "objective=0.50(要点覆盖 2/4，未覆盖: 地点与北京场景匹配; 路线和时间基本可执行); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...); correctness=1.00 (实际输出完全符合期望输出的所有要点，包括上午的历史景点（故宫博物院）、下午的胡同游览（什刹海、烟袋斜街、南锣鼓巷）和晚上...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "fa2b929499d050ca74da115e567b6a8a",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 30,
+        "completion_tokens": 1937,
+        "total_tokens": 1967
+      },
+      "latency": {
+        "generation": 52.400975704193115,
+        "eval": 36.12941789627075
+      }
+    },
+    {
+      "id": 18,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "medium",
+      "sampling_strategy": "指代消解",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "指代消解",
+        "上下文"
+      ],
+      "question": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "我在学 Python，主要用于数据分析和自动化脚本。"
+          },
+          {
+            "role": "assistant",
+            "content": "很好的方向。Python 在数据分析领域常用 pandas、NumPy；自动化脚本可结合 pathlib、requests 等库。"
+          },
+          {
+            "role": "user",
+            "content": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。"
+          }
+        ]
+      },
+      "status": "success",
+      "answer": "数据分析最核心的库是 **pandas**，它几乎是你处理表格数据、清洗、变换、聚合的“瑞士军刀”。围绕它，一个典型且高效的学习顺序如下：\n\n### 推荐学习顺序（由基础到应用）\n\n1. **NumPy**  \n   - 学什么：`ndarray` 数组操作、向量化计算、广播机制。  \n   - 为什么先学：pandas 底层依赖 NumPy，理解数组思维能让你更顺畅地使用 pandas 的 `apply`、`map` 等操作，也便于处理大规模数值运算。\n\n2. **pandas**  \n   - 学什么：`Series` 和 `DataFrame` 的创建、索引、切片、过滤、分组聚合（`groupby`）、合并（`merge`/`join`）、透视表（`pivot_table`）、时间序列处理。  \n   - 重点：数据清洗（缺失值、重复值、类型转换）和“分步-聚合-应用”模式。这是你日常分析 80% 的工作量。\n\n3. **Matplotlib**  \n   - 学什么：`figure` 与 `axes` 的概念、折线图、柱状图、散点图、直方图、子图布局、样式调整。  \n   - 为什么这里学：它是 Python 可视化的基石，学会控制画布和坐标轴，后续用 seaborn 或 pandas 内置绘图时才能灵活定制。\n\n4. **Seaborn**  \n   - 学什么：统计图形（箱线图、小提琴图、热力图、成对关系图）、颜色主题、分类数据可视化。  \n   - 优势：代码更少，图形更美观，直接支持 pandas DataFrame，适合快速探索性分析。\n\n5. **（可选）Scikit-learn**  \n   - 如果分析需要延伸到预测建模（回归、分类、聚类），可以接着学特征工程、模型训练与评估。  \n   - 即使不做机器学习，其中的 `preprocessing` 模块（标准化、编码）也常和 pandas 配合使用。\n\n### 学习建议\n- **环境**：全程在 Jupyter Notebook 或 JupyterLab 中练习，即时看到数据表格和图表，反馈极快。  \n- **边学边练**：用真实数据集（如 Kaggle 上的 Titanic、Airbnb 公开数据）走一遍“读取 → 清洗 → 分析 → 可视化”的流程。  \n- **结合自动化**：学完 pandas 后，可以尝试写脚本自动读取 Excel/CSV，生成汇总报表并发送邮件，这样数据分析与自动化脚本就自然衔接起来了。\n\n这个顺序能让你快速获得从数据到洞察的完整能力，而且每个阶段都有大量实际案例可练。加油！",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "knowledge_retention": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because there are no attritions listed, indicating that all previously established knowledge and details have been accurately retained and referenced in the response."
+          },
+          "conversation_completeness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.0 because the LLM response fully addressed the User's intentions to understand the most commonly used Python libraries for data analysis and to obtain a beginner's learning sequence for Python data analysis."
+          },
+          "multi_turn_quality": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "理解了「它」指 Python，提到了 pandas 等常见库，给出了合理学习顺序，且与前文数据分析场景一致。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); knowledge_retention=1.00 (The score is 1.00 because there are no attritions listed, in...); conversation_completeness=1.00 (The score is 1.0 because the LLM response fully addressed th...); multi_turn_quality=1.00 (理解了「它」指 Python，提到了 pandas 等常见库，给出了合理学习顺序，且与前文数据分析场景一致。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "68b3bf5af3feb67837b9df49316a3418",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 61,
+        "completion_tokens": 1089,
+        "total_tokens": 1150
+      },
+      "latency": {
+        "generation": 27.518426179885864,
+        "eval": 16.85109257698059
+      }
+    },
+    {
+      "id": 20,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "任务修改",
+        "上下文"
+      ],
+      "question": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "帮我列一个上海周末两日游：第一天外滩+南京路，第二天迪士尼。"
+          },
+          {
+            "role": "assistant",
+            "content": "可以。第一天建议傍晚外滩看夜景、步行南京路；第二天全天迪士尼，建议提前购票并早到入园。"
+          },
+          {
+            "role": "user",
+            "content": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。"
+          }
+        ]
+      },
+      "status": "success",
+      "answer": "好的，已根据你的要求更新行程。第一天外滩+南京路保持不变，第二天改为田子坊与武康路城市漫步，节奏更悠闲，适合拍照、逛小店和喝咖啡。\n\n---\n\n### 第一天：外滩 + 南京路步行街（不变）\n**主题：经典地标夜景 + 百年商业街**\n\n- **下午 15:00** 抵达外滩，从**外白渡桥**方向开始，沿江漫步至**十六铺**，看万国建筑博览群与陆家嘴“三件套”隔江相望。\n- **傍晚 17:30** 左右等待亮灯（季节不同时间微调），欣赏外滩夜景，这是全天最出片的时刻。\n- **晚上 19:00** 从外滩步行至**南京路步行街**（约10分钟），沿街逛老字号（邵万生、真老大房）、大型商场，尝鲜肉月饼或沈大成糕团。\n- **晚餐** 可在南京路附近解决，推荐**莱莱小笼**（蟹粉小笼）或**三玛璐酒楼**（本帮菜）。\n\n---\n\n### 第二天：田子坊 + 武康路 City Walk（更新版）\n**主题：弄堂文艺 + 梧桐区老洋房漫步**\n\n**上午：田子坊（弄堂里的创意市集）**\n- **10:00** 地铁9号线**打浦桥站**1号口出，直达田子坊。\n- 穿梭在迷宫般的石库门弄堂里，逛手作小店、艺术工作室、香水铺、剪纸摊，感受老上海生活气息与文创的混搭。\n- 推荐尝一下**老大薯条**、**藕耙热狗棒**，或找一家弄堂二楼咖啡馆歇脚。\n- **午餐** 可在田子坊内吃**平成屋**（日式简餐）或出坊步行至日月光中心，选择更多。\n\n**下午：武康路及周边梧桐区漫步（精华路段）**\n- **13:30** 从田子坊打车或地铁（9号线转10号线）至**上海图书馆站**3号口，开启梧桐区漫步。\n- **推荐步行路线**（全程约2公里，走走停停2-3小时）：\n  - **武康大楼**（淮海中路1850号）→ 经典船型建筑，路口最佳机位打卡。\n  - 沿**武康路**向北走，经过**老房子艺术中心**（黄兴故居）、**武康路393号**（徐汇老房子旅游咨询中心，可盖章）。\n  - **巴金故居**（武康路113号，免费，注意闭馆时间）→ 在花园里感受文学巨匠的日常。\n  - 继续走到**武康路安福路**交叉口，这里潮人聚集，**多抓鱼循环商店**、**BM**、**Sunflour**（阳光粮品）的咖啡面包都不错。\n  - 可拐入**安福路**，逛话剧艺术中心周边，或沿**五原路**、**乌鲁木齐中路**随意穿行，偶遇各种买手店、画廊和冰淇淋店。\n- **下午茶** 推荐**%Arabica**（武康庭店）、**老麦咖啡馆**或**Marienbad**（马里昂巴）。\n\n**晚餐与返程**\n- 在安福路/五原路一带解决，推荐**Alimentari**（意式简餐）、**RAC Bar**（可丽饼）或**振鼎鸡**（白斩鸡）。\n- 饭后可散步至常熟路地铁站（1号线/7号线）返程，结束轻松一日。\n\n---\n\n这样调整后，第二天完全不用赶早，睡到自然醒再出发，很适合周末放松。祝你在上海玩得开心！",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "knowledge_retention": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because there are no attritions listed, indicating that all previously established knowledge and details have been accurately retained and referenced in the response."
+          },
+          "conversation_completeness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.0 because the LLM response fully addressed the user's intentions by providing a detailed weekend two-day itinerary for Shanghai and successfully incorporating the requested changes for the second day to include a tour of Tianzifang and a walk through Wukang Road."
+          },
+          "multi_turn_quality": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全符合输入要求，第一天保持不变，第二天更新为田子坊和武康路城市漫步，且提供了详细的行程安排。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); knowledge_retention=1.00 (The score is 1.00 because there are no attritions listed, in...); conversation_completeness=1.00 (The score is 1.0 because the LLM response fully addressed th...); multi_turn_quality=1.00 (实际输出完全符合输入要求，第一天保持不变，第二天更新为田子坊和武康路城市漫步，且提供了详细的行程安排。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "618127df353491652d59055261daa5be",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 79,
+        "completion_tokens": 1293,
+        "total_tokens": 1372
+      },
+      "latency": {
+        "generation": 33.85412859916687,
+        "eval": 19.70533776283264
+      }
+    },
+    {
+      "id": 21,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "hard",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "记忆偏好",
+        "上下文"
+      ],
+      "question": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "我对海鲜过敏，聚餐请不要推荐海鲜。我们想在北京找人均150左右的餐厅。"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，已记住您海鲜过敏。北京人均150左右可考虑烤鸭、涮肉或京菜馆，我会避开海鲜类推荐。"
+          },
+          {
+            "role": "user",
+            "content": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。"
+          }
+        ]
+      },
+      "status": "success",
+      "answer": "为您推荐3家北京人均150元左右、适合晚餐聚餐，且能完全避开海鲜的餐厅：\n\n### 1. 四季民福烤鸭店（推荐东四十条店或前门店）\n**人均：** 130-160元  \n**推荐理由：**  \n- **海鲜安全**：菜单以烤鸭和京味家常菜为主，几乎没有海鲜类菜品。招牌烤鸭、贝勒烤肉、干炸丸子、芥末鸭掌等都是经典选择，您可以放心点餐。  \n- **聚餐环境**：装修雅致，有圆桌和半开放包间，灯光温暖，非常适合朋友或家庭晚餐聚会。  \n- **特色体验**：烤鸭现场片皮，鸭皮蘸白糖、鸭肉卷饼，仪式感强，且口味地道，是北京聚会的稳妥之选。\n\n### 2. 聚宝源（牛街总店或望京分店）\n**人均：** 120-150元  \n**推荐理由：**  \n- **海鲜安全**：老北京铜锅涮肉，清汤锅底，主打手切鲜羊肉、高钙羊肉等，小料以麻酱为主。菜单上仅有极少数虾滑、鱼丸（可完全不点），其余全是牛羊肉和蔬菜，避开海鲜极其容易。  \n- **聚餐氛围**：炭火铜锅、热气腾腾，大厅里人声鼎沸，很有市井烟火气，适合热闹的晚餐聚会。  \n- **性价比**：肉品份量足，人均150能吃得非常丰盛，搭配现烤的麻酱烧饼，满足感强。\n\n### 3. 小吊梨汤（推荐王府井店或团结湖店）\n**人均：** 100-150元  \n**推荐理由：**  \n- **海鲜安全**：主打京味创意菜，招牌小吊梨汤、干酪鱼、椒麻排骨、小煎猪肝、腊八蒜烧肥肠等均无海鲜。唯一含海鲜的菜品是“梨球果仁虾”，您只需避开这道菜即可，其余菜单对海鲜过敏者非常友好。  \n- **环境风格**：复古民国风装修，木桌椅、老北京摆件，氛围温馨怀旧，适合边喝梨汤边聊天，晚餐节奏舒适。  \n- **菜品丰富**：甜、咸、冷、热菜搭配均衡，梨汤润肺清火，尤其适合秋冬聚餐，且人均丰俭由人，150元预算可点齐一桌好菜。\n\n**温馨提示**：到店时可提前告知服务员海鲜过敏，确保菜品无交叉使用海鲜调料。三家店晚餐时段常需排队，建议提前电话订位。祝您聚餐愉快！",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "knowledge_retention": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because there are no attritions listed, indicating that all previously established knowledge and details were accurately remembered and applied in the response."
+          },
+          "conversation_completeness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.0 because the LLM response fully addressed the user's intentions by not recommending any seafood restaurants due to the user's allergy and by providing recommendations for 3 suitable dinner gathering places in Beijing along with the reasons for each recommendation."
+          },
+          "multi_turn_quality": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出中，三家餐厅均符合非海鲜、人均约150元、北京本地的要求，且理由中体现了对海鲜过敏的约束。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "要点覆盖 4/4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(要点覆盖 4/4); knowledge_retention=1.00 (The score is 1.00 because there are no attritions listed, in...); conversation_completeness=1.00 (The score is 1.0 because the LLM response fully addressed th...); multi_turn_quality=1.00 (实际输出中，三家餐厅均符合非海鲜、人均约150元、北京本地的要求，且理由中体现了对海鲜过敏的约束。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "856ca965d46c705c5636a246460437ab",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 73,
+        "completion_tokens": 2212,
+        "total_tokens": 2285
+      },
+      "latency": {
+        "generation": 61.65588068962097,
+        "eval": 18.193434953689575
+      }
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "category": "边界",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "简洁",
+        "指令遵循"
+      ],
+      "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。",
+      "input_summary": {
+        "type": "single",
+        "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。"
+      },
+      "status": "success",
+      "answer": "4",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the output perfectly matches the input requirement, providing the correct answer without any irrelevant statements."
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出仅包含数字4，完全符合期望输出的要求，没有多余文字。"
+          },
+          "objective_check": {
+            "score": 1.0,
+            "passed": true,
+            "reason": "仅输出数字 4"
+          }
+        },
+        "overall_score": 1.0,
+        "overall_percent": 100.0,
+        "passed_all": true,
+        "summary": "objective=1.00(仅输出数字 4); answer_relevancy=1.00 (The score is 1.00 because the output perfectly matches the i...); correctness=1.00 (实际输出仅包含数字4，完全符合期望输出的要求，没有多余文字。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "7f77e9e0c0fcaf176d705f01f3546807",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 25,
+        "total_tokens": 45
+      },
+      "latency": {
+        "generation": 2.991037368774414,
+        "eval": 11.339001417160034
+      }
+    }
+  ]
+}

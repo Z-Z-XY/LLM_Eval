@@ -1,0 +1,136 @@
+{
+  "schema_version": "llm-eval-report/v2",
+  "run": {
+    "run_id": "20260703_181426_2758a8",
+    "generated_at": "2026-07-03T18:15:53.025694",
+    "status": "completed"
+  },
+  "config": {
+    "model": "deepseek-ai/DeepSeek-V4-Pro",
+    "judge_model": "Qwen/Qwen2.5-72B-Instruct",
+    "eval_engine": "deepeval",
+    "eval_strict": true,
+    "metric_threshold": 0.7,
+    "dataset": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\llm-eval\\eval_dataset.json",
+    "case_count": 1,
+    "eval_suite": null,
+    "fail_under": null,
+    "ci_mode": false
+  },
+  "summary": {
+    "success_count": 1,
+    "failed_count": 0,
+    "overall_score": 0.9375,
+    "overall_percent": 93.8,
+    "score_distribution": {
+      "<60%": 0,
+      "60-79%": 0,
+      "80-89%": 0,
+      "90-94%": 1,
+      "95-100%": 0
+    },
+    "metric_averages": {
+      "answer_relevancy": 1.0,
+      "correctness": 1.0,
+      "objective_check": 0.75
+    },
+    "by_category": {
+      "知识解释": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_sampling_strategy": {
+      "基础概念覆盖": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_suite": {
+      "golden": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    }
+  },
+  "artifacts": {
+    "markdown_report": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\llm-eval\\eval_report.md",
+    "latest_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\llm-eval\\results.json",
+    "archive_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\llm-eval\\results\\20260703_181426_2758a8.json"
+  },
+  "results": [
+    {
+      "id": 1,
+      "type": "single",
+      "category": "知识解释",
+      "difficulty": "easy",
+      "sampling_strategy": "基础概念覆盖",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "概念",
+        "机器学习",
+        "基础样本"
+      ],
+      "question": "解释一下什么是机器学习中的过拟合。",
+      "input_summary": {
+        "type": "single",
+        "question": "解释一下什么是机器学习中的过拟合。"
+      },
+      "status": "success",
+      "answer": "过拟合（Overfitting）是机器学习中一个非常核心且常见的概念。简单来说，它指的是模型在训练数据上表现得过于优秀，以至于把训练数据中的随机噪声和个例特征都“死记硬背”了下来，反而丧失了抓住整体规律的能力，导致在面对从未见过的新数据时表现很差。\n\n为了更直观地理解，我们可以从以下几个维度来拆解：\n\n### 1. 一个形象的比喻：死记硬背的学生\n想象有两个学生在准备数学考试：\n-   **学生A（正常学习）**：理解了公式背后的原理，知道题目在考什么。考试时，即使题目换了数字或问法，他依然能解出来。\n-   **学生B（过拟合）**：他把练习册里所有题目的答案都背了下来，甚至连题目排版、数字出现的顺序都记住了。在模拟考（训练集）中，因为题目一模一样，他得了满分。但在正式考试（测试集）中，题目稍有变化，他就完全不会了，因为他背的是“这道题印在第5页的答案是42”，而不是“解题的逻辑”。\n\n**学生B的行为就是典型的过拟合。** 模型把训练数据中的“个性”当成了“共性”。\n\n### 2. 技术视角：偏差与方差的权衡\n从统计学角度看，过拟合是一种**低偏差、高方差**的状态。\n\n-   **偏差**：模型预测值与真实值之间的偏离程度。过拟合时，模型完美拟合了训练点，偏差极低。\n-   **方差**：模型在不同训练集上产生的波动程度。过拟合的模型非常敏感，训练数据中一个微小的扰动（比如一个异常点）都会导致模型曲线剧烈摆动，方差极高。\n\n最终目标是找到偏差和方差平衡的那个点，既能抓住主要规律，又不至于对噪声敏感。\n\n### 3. 过拟合的具体表现\n-   **训练集上损失极低，准确率近乎完美**（比如损失接近0，准确率100%）。\n-   **验证集/测试集上损失很高，准确率远低于训练集**。这是最关键的信号。\n-   **模型参数绝对值过大**。为了拟合某些异常点，模型会“强行”扭曲曲线，导致某些特征的权重变得极其夸张。\n-   **决策边界异常复杂**。比如一条本来用直线就能分开的数据，模型却画出了一条弯弯绕绕、把所有点都精准包裹的曲线。\n\n### 4. 为什么会发生过拟合？\n-   **模型过于复杂**：参数数量远超数据样本量。比如用100次多项式去拟合10个点，曲线会剧烈震荡。\n-   **数据量太少**：无法代表整体分布，模型很容易把有限的样本全部“记住”。\n-   **数据噪声太大**：模型拼命去拟合那些本不该被拟合的错误标签或离群点。\n-   **训练时间过长**：迭代次数过多，模型开始学习数据中的噪声细节。\n\n### 5. 如何识别过拟合？\n最实用的方法是观察**学习曲线**：\n-   如果训练误差持续下降，而验证误差在下降到一定程度后**开始反弹上升**，两者之间形成一个越来越大的“喇叭口”，那就说明发生了过拟合。\n\n### 6. 如何防止和缓解过拟合？\n这是机器学习工程中的核心工作，常见方法有：\n\n-   **获取更多高质量数据**：最根本的解决办法，让模型看到更多样的样本。\n-   **降低模型复杂度**：\n    -   减少神经网络层数或神经元个数。\n    -   在决策树中剪枝，或限制最大深度。\n    -   使用更简单的模型。\n-   **正则化**：\n    -   **L1/L2正则化**：在损失函数中加入惩罚项，限制参数大小，让权重尽可能小，曲线更平滑。\n    -   **Dropout**：训练神经网络时随机“丢弃”一部分神经元，强迫网络不依赖特定组合，增强鲁棒性。\n-   **早停法**：在验证集误差开始上升时立即停止训练，而不是等到训练误差降到最低。\n-   **数据增强**：对图像进行旋转、裁剪、调色；对文本进行同义词替换等，人为扩充数据多样性。\n-   **集成学习**：如随机森林、梯度提升树，通过组合多个弱模型来降低方差，有效抑制过拟合。\n-   **交叉验证**：通过K折交叉验证来调参，确保模型在不同子集上表现稳定。\n\n总结一下，过拟合的本质是**模型把训练数据中的个性当成了共性，把噪声当成了信号**。一个好的模型，不是要把训练数据100%复刻，而是要从中提炼出能够泛化到未知世界的规律。",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the input question without any irrelevant statements. Keep up the good work!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停法。"
+          },
+          "objective_check": {
+            "score": 0.75,
+            "passed": true,
+            "reason": "要点覆盖 3/4，未覆盖: 泛化能力不足"
+          }
+        },
+        "overall_score": 0.9375,
+        "overall_percent": 93.8,
+        "passed_all": true,
+        "summary": "objective=0.75(要点覆盖 3/4，未覆盖: 泛化能力不足); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...); correctness=1.00 (实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停法。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "a223d5f101958b90afe1acef90ecde47",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 1064,
+        "total_tokens": 1076
+      },
+      "latency": {
+        "generation": 24.612042903900146,
+        "eval": 55.34775638580322
+      }
+    }
+  ]
+}

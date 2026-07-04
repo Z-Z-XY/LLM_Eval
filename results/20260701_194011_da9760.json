@@ -1,0 +1,695 @@
+{
+  "schema_version": "llm-eval-report/v2",
+  "run": {
+    "run_id": "20260701_194011_da9760",
+    "generated_at": "2026-07-01T19:45:03.964551",
+    "status": "completed_with_failures"
+  },
+  "config": {
+    "model": "deepseek-ai/DeepSeek-V4-Pro",
+    "judge_model": "Qwen/Qwen2.5-72B-Instruct",
+    "eval_engine": "deepeval",
+    "eval_strict": true,
+    "metric_threshold": 0.7,
+    "dataset": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_dataset.json",
+    "case_count": 16,
+    "eval_suite": "golden",
+    "fail_under": 85.0,
+    "ci_mode": true
+  },
+  "summary": {
+    "success_count": 1,
+    "failed_count": 15,
+    "overall_score": 0.9375,
+    "overall_percent": 93.8,
+    "score_distribution": {
+      "<60%": 0,
+      "60-79%": 0,
+      "80-89%": 0,
+      "90-94%": 1,
+      "95-100%": 0
+    },
+    "metric_averages": {
+      "answer_relevancy": 1.0,
+      "correctness": 1.0,
+      "objective_check": 0.75
+    },
+    "by_category": {
+      "知识解释": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_sampling_strategy": {
+      "基础概念覆盖": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    },
+    "by_suite": {
+      "golden": {
+        "case_count": 1,
+        "overall_score": 0.9375,
+        "overall_percent": 93.8
+      }
+    }
+  },
+  "artifacts": {
+    "markdown_report": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\eval_report.md",
+    "latest_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results.json",
+    "archive_json": "E:\\ai_test\\wuenda_learning_evaluate\\01_wandb\\lanfuse\\results\\20260701_194011_da9760.json"
+  },
+  "results": [
+    {
+      "id": 1,
+      "type": "single",
+      "category": "知识解释",
+      "difficulty": "easy",
+      "sampling_strategy": "基础概念覆盖",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "概念",
+        "机器学习",
+        "基础样本"
+      ],
+      "question": "解释一下什么是机器学习中的过拟合。",
+      "input_summary": {
+        "type": "single",
+        "question": "解释一下什么是机器学习中的过拟合。"
+      },
+      "status": "success",
+      "answer": "过拟合（Overfitting）是机器学习中一个非常核心的概念，通俗来说就是：**模型把训练数据学得“太好”了，以至于把数据中的噪声和无关细节都记了下来，反而丧失了举一反三的能力。**\n\n### 一个经典的比喻：死记硬背的学生\n想象一个学生准备考试：\n- **正常学习**：理解公式背后的原理，遇到没见过的题目也能推导出来。\n- **过拟合**：把练习册里所有题目的答案背得滚瓜烂熟，连印刷瑕疵导致的错题都记住了。考试时，只要题目和练习册一模一样就能得满分，但题目稍微变个数字或换个问法，立刻就答错了。\n\n在机器学习里，训练数据就是那本练习册，测试数据就是真正的考试。\n\n### 技术上的表现\n- **训练集上**：误差极低，甚至完美预测（准确率接近 100%）。\n- **测试集/新数据上**：表现很差，误差远高于训练集。\n- **学习曲线**：训练损失持续下降，但验证损失在下降到一定程度后反而开始上升，两条曲线之间出现巨大的“鸿沟”。\n\n### 为什么会发生过拟合？\n1. **模型太复杂**：比如用高次多项式去拟合几个点，曲线会剧烈扭动穿过每一个点，但完全不符合真实趋势。\n2. **数据太少或噪声太大**：数据量不足以支撑复杂模型学到真正的规律，模型只能去捕捉那些偶然出现的噪声。\n3. **训练过度**：迭代次数太多，模型开始“雕琢”那些没有意义的细节。\n\n### 如何发现过拟合？\n最直接的方法是**交叉验证**：把数据分成训练集和验证集，如果训练集得分远高于验证集，就很可能过拟合了。观察训练过程中的损失曲线也能直观判断。\n\n### 如何解决过拟合？\n- **增加数据**：更多样、更丰富的数据能让模型看到更本质的规律（数据增强也是同理，如图像旋转、裁剪）。\n- **简化模型**：减少层数、神经元数量，或选择更简单的算法。\n- **正则化**：给损失函数加上惩罚项，限制参数不要变得太大（L1/L2 正则化），或者随机丢弃一部分神经元（Dropout）。\n- **早停**：在验证集误差开始上升时立刻停止训练，不要等到训练误差降到最低。\n- **集成学习**：用多个模型的平均结果来降低单个模型“钻牛角尖”的风险。\n\n过拟合的本质是**模型复杂度与数据量不匹配**，是机器学习中“偏差-方差权衡”里高方差一端的体现。解决它的核心思路就是：**让模型学会“抽象规律”，而不是“背诵细节”。**",
+      "scores": {
+        "engine": "deepeval",
+        "metrics": {
+          "answer_relevancy": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "The score is 1.00 because the response perfectly addresses the input question without any irrelevant statements. Great job!"
+          },
+          "correctness": {
+            "score": 1.0,
+            "raw_score": 1.0,
+            "direction": "higher_is_better",
+            "passed": true,
+            "reason": "实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停等解决方法。"
+          },
+          "objective_check": {
+            "score": 0.75,
+            "passed": true,
+            "reason": "要点覆盖 3/4，未覆盖: 泛化能力不足"
+          }
+        },
+        "overall_score": 0.9375,
+        "overall_percent": 93.8,
+        "passed_all": true,
+        "summary": "objective=0.75(要点覆盖 3/4，未覆盖: 泛化能力不足); answer_relevancy=1.00 (The score is 1.00 because the response perfectly addresses t...); correctness=1.00 (实际输出完全覆盖了期望要点，包括训练集表现好、测试集表现差、泛化能力不足，并且提到了正则化和早停等解决方法。...)",
+        "threshold": 0.7,
+        "_parse_ok": true
+      },
+      "trace_id": "ac4f4dc5cf257b9a645bd9683c9f33e8",
+      "error": null,
+      "usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 859,
+        "total_tokens": 871
+      },
+      "latency": {
+        "generation": 21.802237510681152,
+        "eval": 47.363802671432495
+      }
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "medium",
+      "sampling_strategy": "事实性问答",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "地理",
+        "实体知识",
+        "事实核查"
+      ],
+      "question": "巴黎有几个区？请列出它们的编号范围。",
+      "input_summary": {
+        "type": "single",
+        "question": "巴黎有几个区？请列出它们的编号范围。"
+      },
+      "status": "failed",
+      "answer": "巴黎市共有 **20 个区**（arrondissements），编号范围是 **1 到 20**。  \n这些区以螺旋状从市中心向外排列，1 区位于塞纳河右岸的中心，然后顺时针向外延伸至 20 区。",
+      "scores": null,
+      "trace_id": "e209c33e168b4075f36f6e1df570e7da",
+      "error": "RetryError[<Future at 0x2a950af9370 state=finished raised APIConnectionError>]",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 275,
+        "total_tokens": 289
+      },
+      "latency": {
+        "generation": 8.684758186340332,
+        "eval": 0
+      }
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "category": "代码",
+      "difficulty": "medium",
+      "sampling_strategy": "真实开发任务",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "Python",
+        "算法",
+        "可执行性"
+      ],
+      "question": "如何用 Python 实现斐波那契数列？请给出一个可运行函数，并说明时间复杂度。",
+      "input_summary": {
+        "type": "single",
+        "question": "如何用 Python 实现斐波那契数列？请给出一个可运行函数，并说明时间复杂度。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "b9a5aa5537c9bd9280dc63efc9ad6866",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 4,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "medium",
+      "sampling_strategy": "时效性事实",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "诺贝尔奖",
+        "事实检索",
+        "幻觉风险"
+      ],
+      "question": "2024 年诺贝尔物理学奖颁给了谁？他们的主要贡献是什么？",
+      "input_summary": {
+        "type": "single",
+        "question": "2024 年诺贝尔物理学奖颁给了谁？他们的主要贡献是什么？"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "3c553c1cf6be85bb52b73d4262fbd020",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 5,
+      "type": "single",
+      "category": "创意",
+      "difficulty": "easy",
+      "sampling_strategy": "开放生成",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "写作",
+        "软件测试",
+        "风格约束"
+      ],
+      "question": "写一首关于软件测试的打油诗，要求四句，每句尽量押韵。",
+      "input_summary": {
+        "type": "single",
+        "question": "写一首关于软件测试的打油诗，要求四句，每句尽量押韵。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "077455b16dd960c5b35dd287941ea595",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 6,
+      "type": "single",
+      "category": "数学推理",
+      "difficulty": "easy",
+      "sampling_strategy": "精确计算",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "计算",
+        "精确性",
+        "短答案"
+      ],
+      "question": "997 × 383 等于多少？请只给出最终数字。",
+      "input_summary": {
+        "type": "single",
+        "question": "997 × 383 等于多少？请只给出最终数字。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "404c6b467e046455abf0be38f470af44",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "category": "推理",
+      "difficulty": "hard",
+      "sampling_strategy": "经典逻辑题",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "逻辑",
+        "多步推理",
+        "约束满足"
+      ],
+      "question": "有三个盒子，分别标着「苹果」「橙子」「苹果和橙子」，但所有标签都贴错了。你只能从一个盒子里拿出一个水果查看，如何一次就确定每个盒子里装的是什么？",
+      "input_summary": {
+        "type": "single",
+        "question": "有三个盒子，分别标着「苹果」「橙子」「苹果和橙子」，但所有标签都贴错了。你只能从一个盒子里拿出一个水果查看，如何一次就确定每个盒子里装的是什么？"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "c13d0ee76dd0156e728bb2b06d572dcc",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "category": "事实问答",
+      "difficulty": "easy",
+      "sampling_strategy": "基础文化常识",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "中文文化",
+        "文学",
+        "事实核查"
+      ],
+      "question": "《红楼梦》的作者一般认为是哪位？成书大约是什么时期？",
+      "input_summary": {
+        "type": "single",
+        "question": "《红楼梦》的作者一般认为是哪位？成书大约是什么时期？"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "b2d56bc4505bb209570ebf714a1e2fe3",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 11,
+      "type": "single",
+      "category": "代码调试",
+      "difficulty": "medium",
+      "sampling_strategy": "真实开发任务",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "Python",
+        "调试",
+        "边界条件"
+      ],
+      "question": "下面代码意图打印 1 到 5，但运行结果不对。请指出错误并给出修复：\nfor i in range(1, 5):\n    print(i)",
+      "input_summary": {
+        "type": "single",
+        "question": "下面代码意图打印 1 到 5，但运行结果不对。请指出错误并给出修复：\nfor i in range(1, 5):\n    print(i)"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "38e3e280cf13fbffd46e90d14e061d1b",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "category": "格式遵循",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "JSON",
+        "指令遵循",
+        "结构化输出"
+      ],
+      "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。",
+      "input_summary": {
+        "type": "single",
+        "question": "用 JSON 回答：name=张三, age=28, city=上海。只输出 JSON，不要其他文字。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "a15be8c553ebad7a65fa669c99b5de7c",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 13,
+      "type": "rag",
+      "category": "真实场景问答",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "客服",
+        "RAG",
+        "忠实性"
+      ],
+      "question": "根据资料，我签收后第5天、商品未拆封，能否退货？运费谁出？",
+      "input_summary": {
+        "type": "rag",
+        "question": "根据资料，我签收后第5天、商品未拆封，能否退货？运费谁出？",
+        "context_doc_count": 2,
+        "context_titles": [
+          "退换货政策",
+          "会员权益"
+        ]
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "420abad22a942ac9cec09dfa49d6819d",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 14,
+      "type": "single",
+      "category": "规划",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "旅行",
+        "多约束",
+        "实用性"
+      ],
+      "question": "帮我规划北京一日游：上午看历史，下午逛胡同，晚上吃烤鸭。给出简要时间表和地点建议。",
+      "input_summary": {
+        "type": "single",
+        "question": "帮我规划北京一日游：上午看历史，下午逛胡同，晚上吃烤鸭。给出简要时间表和地点建议。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "04558f88b316934238b6dd76213b2814",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 18,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "medium",
+      "sampling_strategy": "指代消解",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "指代消解",
+        "上下文"
+      ],
+      "question": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "我在学 Python，主要用于数据分析和自动化脚本。"
+          },
+          {
+            "role": "assistant",
+            "content": "很好的方向。Python 在数据分析领域常用 pandas、NumPy；自动化脚本可结合 pathlib、requests 等库。"
+          },
+          {
+            "role": "user",
+            "content": "那它做数据分析时最常用的库是什么？给我推荐一个入门学习顺序。"
+          }
+        ]
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "207eab03f25e7dcd6a4fc296d63a4901",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 20,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "medium",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "任务修改",
+        "上下文"
+      ],
+      "question": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "帮我列一个上海周末两日游：第一天外滩+南京路，第二天迪士尼。"
+          },
+          {
+            "role": "assistant",
+            "content": "可以。第一天建议傍晚外滩看夜景、步行南京路；第二天全天迪士尼，建议提前购票并早到入园。"
+          },
+          {
+            "role": "user",
+            "content": "第二天不去迪士尼了，改成田子坊和武康路 city walk。请更新第二天的安排，第一天保持不变。"
+          }
+        ]
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "3c9f9bdc17cdfaef81972f6813d00607",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 21,
+      "type": "multi_turn",
+      "category": "多轮对话",
+      "difficulty": "hard",
+      "sampling_strategy": "真实场景采样",
+      "suites": [
+        "golden"
+      ],
+      "tags": [
+        "记忆偏好",
+        "上下文"
+      ],
+      "question": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。",
+      "input_summary": {
+        "type": "multi_turn",
+        "question": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。",
+        "turn_count": 3,
+        "messages": [
+          {
+            "role": "user",
+            "content": "我对海鲜过敏，聚餐请不要推荐海鲜。我们想在北京找人均150左右的餐厅。"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，已记住您海鲜过敏。北京人均150左右可考虑烤鸭、涮肉或京菜馆，我会避开海鲜类推荐。"
+          },
+          {
+            "role": "user",
+            "content": "根据我的情况，推荐3家适合的晚餐餐厅，并说明理由。"
+          }
+        ]
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "ec03d6385e0026ac638c1bc63de735ed",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "category": "边界",
+      "difficulty": "easy",
+      "sampling_strategy": "格式约束",
+      "suites": [
+        "golden",
+        "smoke"
+      ],
+      "tags": [
+        "简洁",
+        "指令遵循"
+      ],
+      "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。",
+      "input_summary": {
+        "type": "single",
+        "question": "2+2等于几？只回答一个阿拉伯数字，不要任何解释。"
+      },
+      "status": "failed",
+      "answer": null,
+      "scores": null,
+      "trace_id": "8a0f3b6dbbf04577ca0a7e254dc959d6",
+      "error": "Connection error.（API 连接中断，多为网络波动或限流；可增大 CASE_INTERVAL_SEC、API_MAX_RETRIES 后重试）",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency": {
+        "generation": 0,
+        "eval": 0
+      }
+    }
+  ]
+}
