@@ -113,15 +113,30 @@ class TestObjectiveChecks(unittest.TestCase):
 
 class TestConfig(unittest.TestCase):
     def test_dry_run_validate_no_api_key(self):
-        cfg = EvalConfig.from_env(script_dir=LANFUSE_DIR).with_cli(
-            type("A", (), {"dry_run": True})()
-        ).finalize()
-        cfg.validate()
-        from eval_engine import LLMEvaluationRunner
+        import os
 
-        out = LLMEvaluationRunner(config=cfg).dry_run_validate()
-        self.assertTrue(out["dry_run"])
-        self.assertEqual(out["case_count"], 26)
+        # CI 工作流会在 job 级注入 EVAL_CI / EVAL_SUITE=golden，dry-run 会只统计 18 条。
+        # 本测试校验全量数据集，需临时清掉 suite 筛选。
+        saved = {
+            k: os.environ.pop(k, None)
+            for k in ("EVAL_CI", "EVAL_SUITE", "EVAL_FAIL_UNDER")
+        }
+        try:
+            cfg = EvalConfig.from_env(script_dir=LANFUSE_DIR).with_cli(
+                type("A", (), {"dry_run": True})()
+            ).finalize()
+            cfg.validate()
+            from eval_engine import LLMEvaluationRunner
+
+            out = LLMEvaluationRunner(config=cfg).dry_run_validate()
+            self.assertTrue(out["dry_run"])
+            self.assertEqual(out["case_count"], 26)
+        finally:
+            for k, v in saved.items():
+                if v is not None:
+                    os.environ[k] = v
+                elif k in os.environ:
+                    del os.environ[k]
 
     def test_ci_mode_finalize(self):
         import os
