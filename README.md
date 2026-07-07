@@ -175,10 +175,9 @@ python run_eval.py -v
 | `EVAL_SUITE` / `--suite` | 分层筛选：`golden` / `regression` / `adversarial` / `smoke` |
 | `EVAL_FAIL_UNDER=85` 或 `--fail-under 85` | 综合分低于该值（%）时 `SystemExit(1)`，挡住合并/发布 |
 
-本地模拟 CI：
+本地模拟 CI（在仓库根目录执行，无需再 `cd llm-eval`）：
 
 ```bash
-cd llm-eval
 # 方式一：CLI
 python run_eval.py --ci --fail-under 85
 
@@ -190,7 +189,13 @@ python run_eval.py
 
 ### GitHub Actions 配置步骤
 
-仓库已提供工作流：`.github/workflows/llm-eval.yml`
+本仓库为 **独立 llm-eval 项目**（根目录即 `run_eval.py` 所在目录）。工作流文件：
+
+```
+.github/workflows/llm-eval.yml
+```
+
+远程仓库示例：[github.com/Z-Z-XY/LLM_Eval](https://github.com/Z-Z-XY/LLM_Eval)
 
 1. **推送代码**到 GitHub（含 `llm-eval/` 与 `.github/workflows/`）。
 
